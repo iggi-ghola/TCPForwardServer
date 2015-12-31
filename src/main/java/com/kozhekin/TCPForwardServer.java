@@ -80,6 +80,8 @@ public class TCPForwardServer implements Callable {
                 if (((SocketChannel) channel).finishConnect()) {
                     key.interestOps(SelectionKey.OP_READ);
                     sharedData.getPairedKey().interestOps(SelectionKey.OP_READ);
+                } else {
+                    closeAndCancel(key, sharedData.getPairedKey(), channel, sharedData.getPairedKey().channel());
                 }
             } catch (IOException e) {
                 closeAndCancel(key, sharedData.getPairedKey(), channel, sharedData.getPairedKey().channel());
