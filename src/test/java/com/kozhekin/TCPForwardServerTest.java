@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.concurrent.*;
 
-import static org.junit.As  sert.*;
+import static org.junit.Assert.*;
 
 public class TCPForwardServerTest {
 
